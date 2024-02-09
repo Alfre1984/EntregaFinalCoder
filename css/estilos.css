@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.foto-producto {
+  width: 8rem;
+  height: 10rem;
+}
+
+.card-producto {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 18rem;
+  border: solid 1px darkgray;
+  border-radius: 2px;
+}

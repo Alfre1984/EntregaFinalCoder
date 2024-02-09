@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Remera",
+    "precio": 20000,
+    "img": "https://acdn.mitiendanube.com/stores/001/328/585/products/remera-mujer111-9a6e369a3fed0f614a16272444062492-1024-1024.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Zapatillas",
+    "precio": 70000,
+    "img": "https://equipovallejo.vtexassets.com/arquivos/ids/156215-800-auto?v=637956758548530000&width=800&height=auto&aspect=true"
+  },
+  {
+    "id": 3,
+    "nombre": "Calzoncillo",
+    "precio": 8000,
+    "img": "https://m.media-amazon.com/images/I/61m6ehjmvKL._AC_UY1000_.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Medias",
+    "precio": 7000,
+    "img": "https://http2.mlstatic.com/D_NQ_NP_874074-MLA49588218259_042022-O.webp"
+  }
+]
