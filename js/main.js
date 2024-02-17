@@ -88,26 +88,33 @@ function agregarAlCarrito(id) {
 }
 
 function mostrarCarrito() {
-  carrito.forEach((el) => {
-    // if (el.cantidad > 1) {
+  if (carrito.length == 0) {
     Toastify({
-      text: `Tu carrito contiene ${el.cantidad} ${el.nombre}`,
+      text: `Tu carrito esta vacio`,
       duration: 3000,
     }).showToast();
-    // } else {
-    // Toastify({
-    //   text: "Tu carrito contiene esta vacio",
-    //   duration: 3000,
-    // }).showToast();
-  });
+  } else {
+    carrito.forEach((el) => {
+      Toastify({
+        text: `Tu carrito contiene ${el.cantidad} ${el.nombre}`,
+        duration: 3000,
+      }).showToast();
+    });
+  }
 }
 
 // console.log(carrito);
-
+let sumaProducto = 0;
+let sumaTotal = 0;
 function sumarCarrito() {
   carrito.forEach((el) => {
+    sumaProducto = el.precio * el.cantidad;
+  });
+  sumaProducto.forEach((el) => {
+    sumaTotal = el + el;
+
     Toastify({
-      text: `Tu carrito suma ${el.precio * el.cantidad} `,
+      text: `Tu carrito suma ${sumaTotal}`,
       duration: 3000,
     }).showToast();
   });
