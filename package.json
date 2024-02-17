@@ -1,0 +1,22 @@
+{
+  "name": "entrega-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alfre1984/EntregaFinalCoder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alfre1984/EntregaFinalCoder/issues"
+  },
+  "homepage": "https://github.com/Alfre1984/EntregaFinalCoder#readme",
+  "dependencies": {
+    "eins-modal": "^2.2.2"
+  }
+}

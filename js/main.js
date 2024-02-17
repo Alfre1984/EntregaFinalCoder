@@ -1,10 +1,7 @@
 const container = document.getElementById("container");
 
 let carrito = [];
-
 let productos = [];
-
-// let arrayCarrito = [];
 
 const botonContainer = document.getElementById("boton-carrito");
 const btn1 = document.createElement("button");
@@ -13,18 +10,24 @@ btn1.innerText = "Mostrar carrito";
 btn1.onclick = () => mostrarCarrito();
 
 const btn2 = document.createElement("button");
-btn2.className = "btn btn-danger";
-btn2.innerText = "Limpiar carrito";
-btn2.onclick = () => limpiarCarrito();
+btn2.className = "btn btn-secondary";
+btn2.innerText = "Sumar carrito";
+btn2.onclick = () => sumarCarrito();
 
 const btn3 = document.createElement("button");
 btn3.className = "btn btn-primary";
 btn3.innerText = "Finalizar compra";
 btn3.onclick = () => finalizarCompra();
 
+const btn4 = document.createElement("button");
+btn4.className = "btn btn-danger";
+btn4.innerText = "Limpiar carrito";
+btn4.onclick = () => limpiarCarrito();
+
 botonContainer.appendChild(btn1);
 botonContainer.appendChild(btn2);
 botonContainer.appendChild(btn3);
+botonContainer.appendChild(btn4);
 
 fetch("./json/productos.json")
   .then((response) => response.json())
@@ -74,7 +77,7 @@ function agregarAlCarrito(id) {
     let indiceDelProducto = carrito.findIndex((el) => el.id === id);
     carrito[indiceDelProducto].cantidad += 1;
   }
-
+  console.log(carrito);
   Swal.fire({
     position: "center",
     icon: "success",
@@ -83,45 +86,45 @@ function agregarAlCarrito(id) {
     timer: 1500,
   });
 }
-console.log(carrito);
 
 function mostrarCarrito() {
   carrito.forEach((el) => {
-    Swal.fire({
-      title: `Tu carrito contiene ${el.cantidad} ${el.nombre}`,
-      showClass: {
-        popup: `
-      animate__animated
-      animate__fadeInUp
-      animate__faster
-      `,
-      },
-      hideClass: {
-        popup: `
-      animate__animated
-      animate__fadeOutDown
-      animate__faster
-      `,
-      },
-    });
+    // if (el.cantidad > 1) {
+    Toastify({
+      text: `Tu carrito contiene ${el.cantidad} ${el.nombre}`,
+      duration: 3000,
+    }).showToast();
+    // } else {
+    // Toastify({
+    //   text: "Tu carrito contiene esta vacio",
+    //   duration: 3000,
+    // }).showToast();
   });
 }
-console.log(carrito);
+
+// console.log(carrito);
+
+function sumarCarrito() {
+  carrito.forEach((el) => {
+    Toastify({
+      text: `Tu carrito suma ${el.precio * el.cantidad} `,
+      duration: 3000,
+    }).showToast();
+  });
+}
 
 function finalizarCompra() {
-  carrito.forEach((el) => {
-    Swal.fire({
-      title: "Carrito",
-      text: `Tu carrito contiene ${el.cantidad} ${el.nombre}`,
-      icon: "success",
-    });
+  Swal.fire({
+    title: "Fianlizar Compra",
+    text: `Has finalizado la compra con éxito!! Llegara pronto a tu domicilio.`,
+    icon: "success",
   });
 }
 
 function limpiarCarrito() {
   Swal.fire({
     title: `Estas seguro? ${(carrito = [])}`,
-    text: "Esta accion no se puede deshacer",
+    text: "Esta acción no se puede deshacer",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
